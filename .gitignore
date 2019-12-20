@@ -1,0 +1,62 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+/scripts/coverage
+
+# production
+/build/
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+env.json
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+amplify.log
+
+# amplify
+!amplify/
+amplify/#current-cloud-backend
+amplify/.config/local-*
+amplify/backend/amplify-meta.json
+amplify/coverage
+/src/aws-exports.js
+/syncAxItems/src/aws-exports.js
+awsconfiguration.json
+src/graphql/schema.json
+amplify/backend/awscloudformation/nested-cloudformation-stack.yml
+
+# include resolvers
+amplify/backend/api/reactkart/build/*
+!amplify/backend/api/reactkart/build/resolvers/
+
+# lambda packaged node_modules
+*build.zip
+
+packaged.yml
+
+# gnu make timestamped files
+*-stamp
+
+temp/
+temp.json
+
+# files built via ./route53/Makefile
+route53/acm.json
+route53/parameters.json
+route53/*53*.json
+hosting/template.json
+
+public/rllbr.js
+public/lggly.min.js
