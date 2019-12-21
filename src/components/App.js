@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
 import environment from 'environment'
+import 'styles/main.scss'
 
 const App = ({ message }) => {
   message = message || environment.name

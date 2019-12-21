@@ -6,9 +6,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 module.exports = env => {
   return {
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
       alias: {
-        environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production')
+        environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production'),
+        styles: path.resolve(APP_PATH, 'styles')
       }
     },
     module: {
@@ -23,6 +24,14 @@ module.exports = env => {
           test: /\.(js|jsx)$/,
           use: 'react-hot-loader/webpack',
           include: /node_modules/
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+          ]
         }
       ]
     },
