@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom'
 import App from './components/App'
 
 ReactDOM.render(
-  <App message='React app template' />,
+  <App />,
   document.getElementById('root')
 )

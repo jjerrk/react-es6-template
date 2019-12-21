@@ -29,12 +29,15 @@
     "webpack-dev-server": "^3.10.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "build": "webpack --mode production --env.CLIENT_ENV=Production",
+    "start": "webpack-dev-server --env.CLIENT_ENV=Development --hot",
+    "start-prod": "webpack-dev-server --env.CLIENT_ENV=Production --hot",
+    "start-staging": "webpack-dev-server --env.CLIENT_ENV=Staging --hot",
     "lint": "standard --parser babel-eslint --verbose | snazzy",
     "lint-fix": "standard --fix",
     "test": "jest --colors -b -e --logHeapUsage --coverage --watchAll=false --config=jest.config.js",
-    "test-silent": "yarn test --silent",
-    "build": "webpack --mode production"
+    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --colors -b -e --logHeapUsage --coverage --watchAll=false --config=jest.config.js",
+    "test-silent": "yarn test --silent"
   },
   "standard": {
     "parser": "babel-eslint",
