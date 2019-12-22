@@ -5,12 +5,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
   return {
-    resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
-      alias: {
-        environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production'),
-        styles: path.resolve(APP_PATH, 'styles')
-      }
+    devtool: 'source-map',
+    devServer: {
+      historyApiFallback: true,
+      compress: true,
+      port: 3030,
+      open: true
     },
     module: {
       rules: [
@@ -36,11 +36,9 @@ module.exports = env => {
       ]
     },
     mode: 'development',
-    devServer: {
-      historyApiFallback: true,
-      compress: true,
-      port: 3030,
-      open: true
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
     },
     plugins: [
       new HtmlWebPackPlugin({
@@ -48,6 +46,13 @@ module.exports = env => {
         environment: env.CLIENT_ENV,
         filename: './index.html'
       })
-    ]
+    ],
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
+      alias: {
+        environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production'),
+        styles: path.resolve(APP_PATH, 'styles')
+      }
+    }
   }
 }

@@ -29,11 +29,14 @@
     "standard": "^14.3.1",
     "style-loader": "^1.1.1",
     "webpack": "^4.41.4",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
   "scripts": {
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
     "build": "webpack --mode production --env.CLIENT_ENV=Production",
+    "build-stats": "webpack --profile --json --env.CLIENT_ENV=Production > dist/stats.json",
     "start": "webpack-dev-server --env.CLIENT_ENV=Development --hot",
     "start-prod": "webpack-dev-server --env.CLIENT_ENV=Production --hot",
     "start-staging": "webpack-dev-server --env.CLIENT_ENV=Staging --hot",
