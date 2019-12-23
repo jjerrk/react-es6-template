@@ -4,3 +4,14 @@ body {
   font-family: $font-family;
   font-size: calc(12px + .35vw);
 }
+
+nav {
+  > a {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  > a + a {
+    margin-left: 15px;
+  }
+}

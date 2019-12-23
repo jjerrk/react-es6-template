@@ -36,8 +36,14 @@ module.exports = env => {
       ]
     },
     mode: 'development',
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      }
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
+      chunkFilename: '[name].bundle.js',
       filename: 'bundle.js'
     },
     plugins: [
