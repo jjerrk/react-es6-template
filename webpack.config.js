@@ -9,8 +9,7 @@ module.exports = env => {
     devServer: {
       historyApiFallback: true,
       compress: true,
-      port: 3030,
-      open: true
+      port: 3030
     },
     module: {
       rules: [
@@ -44,6 +43,17 @@ module.exports = env => {
               }
             }
           ]
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'fonts/[name].[ext]'
+              }
+            }
+          ]
         }
       ]
     },
@@ -70,7 +80,8 @@ module.exports = env => {
       alias: {
         environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production'),
         styles: path.resolve(APP_PATH, 'styles'),
-        images: path.resolve(APP_PATH, 'images')
+        images: path.resolve(APP_PATH, 'images'),
+        fonts: path.resolve(APP_PATH, 'fonts')
       }
     }
   }
