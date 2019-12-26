@@ -32,6 +32,18 @@ module.exports = env => {
             'css-loader',
             'sass-loader'
           ]
+        },
+        {
+          test: /\.(gif|jpe*g|png|svg|)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8000,
+                name: 'images/[hash]-[name].[ext]'
+              }
+            }
+          ]
         }
       ]
     },
@@ -57,7 +69,8 @@ module.exports = env => {
       extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
       alias: {
         environment: path.join(APP_PATH, 'environments', env.CLIENT_ENV || 'Production'),
-        styles: path.resolve(APP_PATH, 'styles')
+        styles: path.resolve(APP_PATH, 'styles'),
+        images: path.resolve(APP_PATH, 'images')
       }
     }
   }

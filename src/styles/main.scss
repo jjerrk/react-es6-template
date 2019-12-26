@@ -5,6 +5,11 @@ body {
   font-size: calc(12px + .35vw);
 }
 
+h2 {
+  background: url(~images/Octicons-mark-github.svg) center left / 28px no-repeat;
+  padding-left: 35px
+}
+
 nav {
   > a {
     display: inline-block;
