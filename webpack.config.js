@@ -1,6 +1,6 @@
 const path = require('path')
 const APP_PATH = path.resolve(__dirname, 'src')
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
@@ -69,6 +69,7 @@ module.exports = env => {
       filename: 'bundle.js'
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new HtmlWebPackPlugin({
         template: './src/index.html',
         environment: env.CLIENT_ENV,
